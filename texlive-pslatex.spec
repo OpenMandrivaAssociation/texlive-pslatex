@@ -65,6 +65,7 @@ pslatex is widely considered obsolete.
 %doc %{_texmfdistdir}/source/latex/pslatex/fontinst/pslatex.tex
 %doc %{_texmfdistdir}/source/latex/pslatex/shell/pslatex
 %doc %{_texmfdistdir}/source/latex/pslatex/shell/pslatex.bat
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -75,3 +76,5 @@ pslatex is widely considered obsolete.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
