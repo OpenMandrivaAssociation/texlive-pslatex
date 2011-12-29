@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 A small package that makes LaTeX default to 'standard'
@@ -37,20 +35,12 @@ as a lost cause (there are better free fixed-width available
 now, than there were when pslatex was designed). As a result,
 pslatex is widely considered obsolete.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -66,7 +56,6 @@ pslatex is widely considered obsolete.
 %doc %{_texmfdistdir}/source/latex/pslatex/fontinst/pslatex.tex
 %doc %{_texmfdistdir}/source/latex/pslatex/shell/pslatex
 %doc %{_texmfdistdir}/source/latex/pslatex/shell/pslatex.bat
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -77,5 +66,3 @@ pslatex is widely considered obsolete.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
