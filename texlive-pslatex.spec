@@ -66,3 +66,17 @@ pslatex is widely considered obsolete.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20091007-2
++ Revision: 755150
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20091007-1
++ Revision: 719323
+- texlive-pslatex
+- texlive-pslatex
+- texlive-pslatex
+- texlive-pslatex
+
