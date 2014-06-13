@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-pslatex
 Version:	20091007
-Release:	6
+Release:	7
 Summary:	Use PostScript fonts by default
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pslatex
