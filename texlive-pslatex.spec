@@ -1,18 +1,12 @@
-# revision 16416
-# category Package
-# catalog-ctan /macros/latex/contrib/pslatex
-# catalog-date 2009-10-07 22:25:55 +0200
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-pslatex
-Version:	20190228
+Version:	57434
 Release:	1
 Summary:	Use PostScript fonts by default
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pslatex
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pslatex.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pslatex.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pslatex.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pslatex.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -36,12 +30,12 @@ now, than there were when pslatex was designed). As a result,
 pslatex is widely considered obsolete.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -59,24 +53,10 @@ pslatex is widely considered obsolete.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20091007-2
-+ Revision: 755150
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20091007-1
-+ Revision: 719323
-- texlive-pslatex
-- texlive-pslatex
-- texlive-pslatex
-- texlive-pslatex
-
