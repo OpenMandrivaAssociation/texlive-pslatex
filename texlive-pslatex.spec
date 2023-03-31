@@ -1,6 +1,6 @@
 Name:		texlive-pslatex
 Version:	57434
-Release:	1
+Release:	2
 Summary:	Use PostScript fonts by default
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pslatex
